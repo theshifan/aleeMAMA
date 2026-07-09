@@ -218,7 +218,7 @@ export default function Review() {
             fontWeight: 800, fontSize: "0.9rem",
             textDecoration: "none",
             fontFamily: "'Nunito', cursive",
-            boxShadow: "0 4px 15px #f5d533",
+            boxShadow: "0 4px 15px rgba(221,42,123,0.3)",
           }}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
