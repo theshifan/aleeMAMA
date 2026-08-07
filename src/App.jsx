@@ -4,6 +4,7 @@ import Aleemama from "./pages/Aleemama";
 import OurStory from "./pages/OurStory";
 import ContactUs from "./pages/ContactUs";
 import ProductCard from "./pages/Products"
+import Cart from "./pages/Cart";
 
 // Placeholder components for demo
 const Recipes = () => <div style={{ padding: "2rem" }}><h2>Recipes Page</h2></div>;
@@ -21,8 +22,9 @@ export default function App() {
           <Route path="recipes" element={<Recipes />} /> {/* Renders at domain.com/recipes */}
           <Route path="contact-us" element={<ContactUs/>}/>
           <Route path="product" element={<ProductCard />} />
-          {/* <Route path="/product/:id" element={<ProductDetail />} /> */}
           
+          {/* <Route path="/product/:id" element={<ProductDetail />} /> */}
+          <Route path="cart" element={<Cart/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

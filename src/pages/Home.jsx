@@ -53,6 +53,7 @@ export default function Home() {
         top: 64,
         left: 0, right: 0, bottom: 0,
         overflowY: "auto",
+        overflowX: "hidden",  
         display: "flex",
         flexDirection: "column",
       }}>

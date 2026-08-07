@@ -39,13 +39,18 @@ export default function Review() {
   //   return () => clearInterval(interval);
   // }, [isInView]);
 
-  const scrollToCard = (index) => {
-    if (!carouselRef.current) return;
-    const card = carouselRef.current.children[index];
-    if (card) {
-      card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
-  };
+const scrollToCard = (index) => {
+  if (!carouselRef.current) return;
+  const card = carouselRef.current.children[index];
+  if (!card) return;
+  const cardLeft = card.offsetLeft;
+  const cardWidth = card.offsetWidth;
+  const containerWidth = carouselRef.current.offsetWidth;
+  carouselRef.current.scrollTo({
+    left: cardLeft - (containerWidth / 2) + (cardWidth / 2),
+    behavior: "smooth",
+  });
+};
 
   const goTo = (index) => {
     setActive(index);
@@ -59,6 +64,8 @@ export default function Review() {
         padding: "60px 0 60px",
         // background: "#fffdf0",
         overflow: "hidden",
+        maxWidth: "100vw",        // ← ADD THIS
+        boxSizing: "border-box",
       }}
     >
       {/* ── TITLE ── */}
@@ -90,8 +97,13 @@ export default function Review() {
 
         {/* Left arrow */}
         <button
-          onClick={() => goTo((active - 1 + reviews.length) % reviews.length)}
-          style={{
+          type="button" // 👈 Add type="button"
+            onClick={(e) => {
+              e.stopPropagation(); // 👈 Add stopPropagation
+              e.preventDefault();
+              goTo((active - 1 + reviews.length) % reviews.length);
+            }}         
+            style={{
             position: "absolute", left: 8, top: "50%",
             transform: "translateY(-50%)",
             zIndex: 5,
@@ -147,8 +159,12 @@ export default function Review() {
 
         {/* Right arrow */}
         <button
-          onClick={() => goTo((active + 1) % reviews.length)}
-          style={{
+            type="button" // 👈 Prevents default form submission behavior
+              onClick={(e) => {
+                e.stopPropagation(); // 👈 Prevents the click from bubbling up to parent containers
+                e.preventDefault();
+                goTo((active + 1) % reviews.length);
+              }}          style={{
             position: "absolute", right: 8, top: "50%",
             transform: "translateY(-50%)",
             zIndex: 5,
@@ -231,5 +247,5 @@ export default function Review() {
         </a>
       </div>
     </div>
-  );
+  ); 
 }
