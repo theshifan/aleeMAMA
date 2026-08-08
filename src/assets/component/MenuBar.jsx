@@ -106,7 +106,7 @@ export default function MenuBar({ onNavigate }) {
                 display: "flex", alignItems: "center", justifyContent: "space-between",
                 fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
                 fontWeight: 800, color: "#5a2a1a",
-                fontFamily: "'Nunito', 'Comic Sans MS', cursive",
+                fontFamily: "'Nunito', sans-serif",
                 textAlign: "left",
               }}
             >

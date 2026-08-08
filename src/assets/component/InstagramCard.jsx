@@ -9,7 +9,7 @@ const InstagramCardPlaceholder = ({ myPictureUrl, username, caption, likes }) =>
       border: "1px solid #dbdbdb",
       borderRadius: 12,
       boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
-      fontFamily: "'Nunito', 'Comic Sans MS', cursive",
+      fontFamily: "'Nunito', sans-serif",
       margin: "0 auto",
       overflow: "hidden",
     }}>
