@@ -17,7 +17,7 @@ import AbcJuice from '../assets/component/products pic/ABC juice.png';
 
 import Kunnaming from '../assets/component/Ingredients/kunnamkai.png'
 import Sweetpotatoing from '../assets/component/Ingredients/sweet potato.png'
-import Carbananaing from '../assets/component/Ingredients/Carbanana.png'
+import Carbananaing from '../assets/component/Ingredients/carbanana.png'
 import Milkylixing from '../assets/component/Ingredients/milkyliks.png'
 import Pumkistaing from '../assets/component/Ingredients/pimkista.png'
 // import abcing from '../assets/component/Ingredients/abc.png'
