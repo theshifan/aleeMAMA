@@ -69,7 +69,7 @@ export default function ContactUs() {
 
         .contact-img {
           position: absolute;
-          bottom: 180px;
+          bottom: 140px;
           right: 0;
           width: 100%;
           height: auto;
