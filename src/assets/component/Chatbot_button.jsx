@@ -29,7 +29,7 @@ export default function ChatbotButton() {
 
       {/* Circular Avatar Button */}
       <button
-        onClick={() => alert("Chatbot coming soon!")}
+        // onClick={() => alert("Chatbot coming soon!")} chnage this comment to see the alert 
         style={{
           width: 72, 
           height: 72, 
