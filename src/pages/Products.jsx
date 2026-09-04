@@ -2,17 +2,17 @@ import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Primary images
-import Ragi6M from '../assets/component/products pic/SP Ragi 6M.png';
-import RawBana from '../assets/component/products pic/RAW banana nenedran.png';
-import Kunnam from '../assets/component/products pic/Kunnam kaya raw banana.png';
-import Sweetpotato from '../assets/component/products pic/Sweet Potato.png';
-import Carbanana from '../assets/component/products pic/carbanana.png';
-import Milkylix from '../assets/component/products pic/Milkylix.png';
-import NutriMix from '../assets/component/products pic/Nutri mix.png';
-import PohaAndMakahana from '../assets/component/products pic/Poha and Makhana.png';
-import Pumkista from '../assets/component/products pic/Pumkista.png';
-import RedBanapple from '../assets/component/products pic/Red banapple.png';
-import AbcJuice from '../assets/component/products pic/ABC juice.png';
+import Ragi6M from '../assets/component/products_pic/SP Ragi 6M.png';
+import RawBana from '../assets/component/products_pic/RAW banana nenedran.png';
+import Kunnam from '../assets/component/products_pic/Kunnam kaya raw banana.png';
+import Sweetpotato from '../assets/component/products_pic/Sweet Potato.png';
+import Carbanana from '../assets/component/products_pic/carbanana.png';
+import Milkylix from '../assets/component/products_pic/Milkylix.png';
+import NutriMix from '../assets/component/products_pic/Nutri mix.png';
+import PohaAndMakahana from '../assets/component/products_pic/Poha and Makhana.png';
+import Pumkista from '../assets/component/products_pic/Pumkista.png';
+import RedBanapple from '../assets/component/products_pic/Red banapple.png';
+import AbcJuice from '../assets/component/products_pic/ABC juice.png';
 
 
 import Kunnaming from '../assets/component/Ingredients/kunnamkai.png'
@@ -176,7 +176,6 @@ function ProductCard({ product, onImageClick }) {
           </span>
           {/* Small arrow */}
           <svg width="24" height="20" viewBox="0 0 24 20"
-           width="24" height="20" viewBox="0 0 24 20"
            style={{ transform: "scaleX(-1)" }}  // ← flips horizontally
           >
             <path d="M 3,3 Q 12,14 21,8"
