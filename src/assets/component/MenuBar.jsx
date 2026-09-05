@@ -77,11 +77,11 @@ export default function MenuBar({ onNavigate }) {
 
           {/* Profile */}
           <button style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}>
-            {/* <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
               stroke="#5a2a1a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
-            </svg> */}
+            </svg>
           </button>
         </div>
       </div>
