@@ -6,7 +6,7 @@ export default function ChatbotButton() {
     <div style={{
       position: "absolute", 
       bottom: 24, right: 24,
-        zIndex: 30, // Keeps it floating on top of the footer and content
+        zIndex: 10, // Keeps it floating on top of the footer and content
       display: "flex", 
       flexDirection: "row-reversed", 
       alignItems: "center", 

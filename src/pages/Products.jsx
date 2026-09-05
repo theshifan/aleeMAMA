@@ -11,7 +11,9 @@ import PohaAndMakahana from '../assets/component/products pic/Poha and Makhana.p
 import Pumkista from '../assets/component/products pic/Pumkista.png'
 import RedBanapple from '../assets/component/products pic/Red banapple.png'
 import AbcJuice from '../assets/component/products pic/ABC juice.png'
+import { useCart } from "../context/CartContext";
 // import ABC from '../assets/component/products pic/ABC juice.png'
+
 const products = [
   {
     id: 1,
@@ -117,7 +119,9 @@ function ProductCard({ product, onProductClick }) {
   const imageRef = useRef(null);
   const cardRef = useRef(null);
   const [imageY, setImageY] = useState(0);
-  const [imageOpacity, setImageOpacity] = useState(1);
+  const [imageOpacity, setImageOpacity] = useState(1);   
+  const { addToCart, openCart } = useCart();
+  const navigate = useNavigate(); // make sure useNavigate is imported at the top of Products.jsx
 
   useEffect(() => {
     // Find the Home scroll container
@@ -194,7 +198,7 @@ function ProductCard({ product, onProductClick }) {
         <p style={{
           fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
           fontWeight: 700,
-          color: "#ffe8d0",
+          color: "#f6f3f0",
           margin: "8px 0",
           fontFamily: "'Nunito', cursive",
         }}>
@@ -203,12 +207,29 @@ function ProductCard({ product, onProductClick }) {
         <p style={{
           fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
           fontWeight: 700,
-          color: "#ffe8d0",
+          color: "#f4f1ef",
           margin: "8px 0",
           fontFamily: "'Nunito', cursive",
         }}>
           Price : {product.price}
         </p>
+        <button onClick={() => addToCart(product)}
+  style={{
+    cursor: "pointer",
+    marginTop: 12,
+    background: "#fff",
+    color: product.color || "#5a2a1a",
+    border: "none",
+    borderRadius: 20,
+    padding: "8px 20px",
+    fontWeight: 900,
+    fontSize: "0.95rem",
+    fontFamily: "'Nunito', cursive",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+  }}
+>
+  Add to Cart 🛒
+</button>
       </div>
 
       {/* RIGHT: Product image — scrolls down and fades as you scroll */}
