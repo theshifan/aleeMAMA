@@ -253,9 +253,9 @@ function ProductCard({ product, onProductClick }) {
             src={product.image}
             alt={product.name}
             style={{
-              width: "80%",
-              maxWidth: 260,
-              height: "auto",
+              width: "500px",
+              // maxWidth: 260,
+              height: "700px",
               animation: "hoverFloat 3s ease-in-out infinite",
               filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.4))",
             }}

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useCart } from "../../context/CartContext";
+import Cart from "../../pages/Cart"; // Import the separate Cart component
 
 const navItems = [
   { label: "Our Story",  section: "our-story" },
@@ -10,6 +12,7 @@ const navItems = [
 
 export default function MenuBar({ onNavigate }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { toggleCart, cartItems } = useCart();
 
   const handleNav = (section) => {
     setMenuOpen(false);
@@ -20,13 +23,14 @@ export default function MenuBar({ onNavigate }) {
     <>
       {/* ── TOP BAR ── */}
       <div style={{
-        position: "absolute", top: 0, left: 0, right: 0,
+        position: "fixed", top: 0, left: 0, right: 0,
         height: 64,
         display: "flex", alignItems: "center",
         justifyContent: "space-between",
         padding: "0 24px",
         zIndex: 10,
       }}>
+        {/* Hamburger */}
         <button
           onClick={() => setMenuOpen(o => !o)}
           style={{
@@ -37,8 +41,7 @@ export default function MenuBar({ onNavigate }) {
           {[0, 1, 2].map(i => (
             <span key={i} style={{
               display: "block", width: 28, height: 3,
-              background: "#5a2a1a", borderRadius: 2,
-              transition: "all 0.3s",
+              background: "#5a2a1a", borderRadius: 2, transition: "all 0.3s",
               transform: menuOpen
                 ? i === 0 ? "rotate(45deg) translate(5px, 5px)"
                 : i === 1 ? "scaleX(0)"
@@ -49,13 +52,30 @@ export default function MenuBar({ onNavigate }) {
         </button>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <button style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}>
-            {/* <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+          {/* Cart icon */}
+          <button
+            onClick={toggleCart}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative" }}
+          >
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
               stroke="#5a2a1a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-            </svg> */}
+            </svg>
+            {cartItems.length > 0 && (
+              <div style={{
+                position: "absolute", top: 0, right: 0,
+                width: 16, height: 16, borderRadius: "50%",
+                background: "#5a2a1a", color: "#fff",
+                fontSize: "0.6rem", fontWeight: 900,
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                {cartItems.length}
+              </div>
+            )}
           </button>
+
+          {/* Profile */}
           <button style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}>
             {/* <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
               stroke="#5a2a1a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,9 +86,9 @@ export default function MenuBar({ onNavigate }) {
         </div>
       </div>
 
-      {/* ── SLIDE-IN NAV MENU ── */}
+      {/* ── SLIDE-IN NAV MENU (left) ── */}
       <div style={{
-        position: "absolute", top: 0, left: 0,
+        position: "fixed", top: 0, left: 0,
         width: "min(320px, 80vw)", height: "100%",
         background: "#ffffff", zIndex: 20,
         transform: menuOpen ? "translateX(0)" : "translateX(-100%)",
@@ -76,19 +96,15 @@ export default function MenuBar({ onNavigate }) {
         boxShadow: menuOpen ? "4px 0 30px rgba(0,0,0,0.08)" : "none",
         display: "flex", flexDirection: "column", paddingTop: 80,
       }}>
-        <button
-          onClick={() => setMenuOpen(false)}
-          style={{
-            position: "absolute", top: 16, left: 20,
-            background: "none", border: "none", cursor: "pointer",
-            display: "flex", flexDirection: "column", gap: 5, padding: 8,
-          }}
-        >
+        <button onClick={() => setMenuOpen(false)} style={{
+          position: "absolute", top: 16, left: 20,
+          background: "none", border: "none", cursor: "pointer",
+          display: "flex", flexDirection: "column", gap: 5, padding: 8,
+        }}>
           {[0, 1, 2].map(i => (
             <span key={i} style={{
               display: "block", width: 28, height: 3,
-              background: "#5a2a1a", borderRadius: 2,
-              transition: "all 0.3s",
+              background: "#5a2a1a", borderRadius: 2, transition: "all 0.3s",
               transform: i === 0 ? "rotate(45deg) translate(5px, 5px)"
                 : i === 1 ? "scaleX(0)"
                 : "rotate(-45deg) translate(5px, -5px)",
@@ -98,23 +114,15 @@ export default function MenuBar({ onNavigate }) {
 
         {navItems.map((item, i) => (
           <div key={i}>
-            <button
-              onClick={() => handleNav(item.section)}
-              style={{
-                width: "100%", background: "none", border: "none",
-                cursor: "pointer", padding: "18px 28px",
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-                fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
-                fontWeight: 800, color: "#5a2a1a",
-                fontFamily: "'Nunito', sans-serif",
-                textAlign: "left",
-              }}
-            >
+            <button onClick={() => handleNav(item.section)} style={{
+              width: "100%", background: "none", border: "none",
+              cursor: "pointer", padding: "18px 28px",
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
+              fontWeight: 800, color: "#5a2a1a",
+              fontFamily: "'Nunito', cursive", textAlign: "left",
+            }}>
               {item.label}
-              {/* <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="#5a2a1a" strokeWidth="2.5" strokeLinecap="round">
-                <polyline points="6 9 12 15 18 9" />
-              </svg> */}
             </button>
             {i < navItems.length - 1 && (
               <div style={{ padding: "0 28px" }}>
@@ -129,12 +137,19 @@ export default function MenuBar({ onNavigate }) {
         ))}
       </div>
 
+      {/* Nav Menu Overlay */}
       {menuOpen && (
-        <div onClick={() => setMenuOpen(false)} style={{
-          position: "absolute", inset: 0, zIndex: 15,
-          background: "rgba(0,0,0,0.15)",
-        }} />
+        <div
+          onClick={() => setMenuOpen(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 15,
+            background: "rgba(0,0,0,0.15)",
+          }}
+        />
       )}
+
+      {/* ── SEPARATE CART DRAWER ── */}
+      <Cart />
     </>
   );
 }

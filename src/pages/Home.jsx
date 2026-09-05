@@ -7,12 +7,14 @@ import OurStory from "./OurStory";
 import ContactUs from "./ContactUs";
 import Products from "./Products";
 import Review from "./Review";
+import Recipes from "./Recipes";
 
 export default function Home() {
   const ourStoryRef = useRef(null);
   const contactUsRef = useRef(null);
   const productRef = useRef(null);
   const reviewRef = useRef(null);
+  const RecipesRef = useRef(null);
 
 
   const scrollToSection = (section) => {
@@ -27,6 +29,9 @@ export default function Home() {
     }
     if (section === "review" && reviewRef.current) {
       reviewRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+    if (section === "recipie" && RecipesRef.current) {
+      RecipesRef.current.scrollIntoView({ behavior: "smooth" });
     }
     // add more sections here later e.g. product, contact etc
   };
@@ -48,6 +53,7 @@ export default function Home() {
         top: 64,
         left: 0, right: 0, bottom: 0,
         overflowY: "auto",
+        overflowX: "hidden",  
         display: "flex",
         flexDirection: "column",
       }}>
@@ -82,6 +88,10 @@ export default function Home() {
         <div ref={reviewRef}>
           <Review></Review>
         </div>
+        <div ref={RecipesRef}>
+          <Recipes></Recipes>
+        </div>
+
         <div ref={contactUsRef}>
           <ContactUs></ContactUs>
         </div>
