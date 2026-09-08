@@ -1,18 +1,20 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Ragi6M from '../assets/component/products pic/SP Ragi 6M.png'
-import RawBana from '../assets/component/products pic/RAW banana nenedran.png'
-import Kunnam from '../assets/component/products pic/Kunnam kaya raw banana.png'
-import Sweetpotato from '../assets/component/products pic/Sweet Potato.png'
-import Carbanana from '../assets/component/products pic/carbanana.png'
-import Milkylix from '../assets/component/products pic/Milkylix.png'
-import NutriMix from '../assets/component/products pic/Nutri mix.png'
-import PohaAndMakahana from '../assets/component/products pic/Poha and Makhana.png'
-import Pumkista from '../assets/component/products pic/Pumkista.png'
-import RedBanapple from '../assets/component/products pic/Red banapple.png'
-import AbcJuice from '../assets/component/products pic/ABC juice.png'
+import Ragi6M from '../assets/component/products pic/SP Ragi 6M.png';
+import RawBana from '../assets/component/products pic/RAW banana nenedran.png';
+import Kunnam from '../assets/component/products pic/Kunnam kaya raw banana.png';
+import Sweetpotato from '../assets/component/products pic/Sweet Potato.png';
+import Carbanana from '../assets/component/products pic/carbanana.png';
+import Milkylix from '../assets/component/products pic/Milkylix.png';
+import NutriMix from '../assets/component/products pic/Nutri mix.png';
+import PohaAndMakahana from '../assets/component/products pic/Poha and Makhana.png';
+import Pumkista from '../assets/component/products pic/Pumkista.png';
+import RedBanapple from '../assets/component/products pic/Red banapple.png';
+import AbcJuice from '../assets/component/products pic/ABC juice.png';
+import millet from '../assets/component/products pic/millet and beets.png';
+import pancake from '../assets/component/products pic/pancake mix.png';
+import ragiDates from '../assets/component/products pic/ragi date and almonds.png'
 import { useCart } from "../context/CartContext";
-// import ABC from '../assets/component/products pic/ABC juice.png'
 
 const products = [
   {
@@ -28,8 +30,8 @@ const products = [
     id: 2,
     name: "raw banana powder (kunnamkaya)",
     weight: "300 g",
-    price: "230/-",
-    months: "8+",
+    price: "285/-",
+    months: "6+",
     color: "#b2d243",
     image: Kunnam,
   },
@@ -38,79 +40,108 @@ const products = [
     name: "RAW BANANA POWDER (NENDRAN)",
     weight: "300 g",
     price: "280/-",
-    months: "10+",
+    months: "6+",
     color: "#ffce45",
     image: RawBana,
   },
-  {
+
+    {
     id: 4,
-    name: "SPROUTED RAGI NUTRI MIX",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
-    color: "#edb062",
-    image: NutriMix,
-  },{
-    id: 5,
-    name: "POHA AND MAKAHANA",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
-    color: "#d9d9d9",
-    image: PohaAndMakahana,
-  },
-  {
-    id: 6,
-    name: "SWEET POTATO AND GRAINS",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
-    color: "#984788",
-    image: Sweetpotato,
-  },
-  {
-    id: 7,
     name: "RED BANAPPLE",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
+    weight: "250 g",
+    price: "360/-",
+    months: "7+",
     color: "#fb939d",
     image: RedBanapple,
   },
-   {
+  {
+    id: 5,
+    name: "SWEET POTATO AND GRAINS",
+    weight: "250 g",
+    price: "300/-",
+    months: "7+",
+    color: "#984788",
+    image: Sweetpotato,
+  },
+     {
+    id: 6,
+    name: "Ragi Dates & Almond",
+    weight: "250 g",
+    price: "320/-",
+    months: "7+",
+    color: "#bd7b68",
+    image: ragiDates,
+  },
+    {
+    id: 7,
+    name: "SPROUTED RAGI NUTRI MIX",
+    weight: "300 g",
+    price: "290/-",
+    months: "8+",
+    color: "#edb062",
+    image: NutriMix,
+  },
+{
     id: 8,
     name: "PUMKISTA POWDER",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
+    weight: "250 g",
+    price: "330/-",
+    months: "8+",
     color: "#ccc14f",
     image: Pumkista,
   },
-  {
-    id: 9,
-    name: "MILKYLIX POWDER",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
-    color: "#754012",//#ecb870
-    image: Milkylix,
-  },
     {
-    id: 10,
-    name: "CARBANANA",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
-    color: "#ff751f",//#fff8bd
+    id: 9,
+    name: "Carbanana And Almond Mix",
+    weight: "250 g",
+    price: "340/-",
+    months: "8+",
+    color: "#ff751f",
     image: Carbanana,
   },
     {
+    id: 10,
+    name: "POHA AND MAKAHANA",
+    weight: "250 g",
+    price: "320/-",
+    months: "8+",
+    color: "#d9d9d9",
+    image: PohaAndMakahana,
+  },
+    {
     id: 11,
-    name: "abC POWDER",
-    weight: "300 g",
-    price: "280/-",
-    months: "10+",
-    color: "#fb939d",//#ffe9db
+    name: "Millet And Beets",
+    weight: "250 g",
+    price: "320/-",
+    months: "8+",
+    color: "#d26872",
+    image: millet,
+  },
+     {
+    id: 12,
+    name: "PanCake Mix",
+    weight: "250 g",
+    price: "320/-",
+    months: "8+",
+    color: "#ffeb99",
+    image: pancake,
+  },
+  {
+    id: 13,
+    name: "MILKYLIX POWDER",
+    weight: "250 g",
+    price: "300/-",
+    months: "12+",
+    color: "#754012",
+    image: Milkylix,
+  },
+  {
+    id: 14,
+    name: "ABC POWDER",
+    weight: "250 g",
+    price: "480/-",
+    months: "24+",
+    color: "#fb939d",
     image: AbcJuice,
   },
 ];
@@ -121,10 +152,8 @@ function ProductCard({ product, onProductClick }) {
   const [imageY, setImageY] = useState(0);
   const [imageOpacity, setImageOpacity] = useState(1);   
   const { addToCart, openCart } = useCart();
-  const navigate = useNavigate(); // make sure useNavigate is imported at the top of Products.jsx
 
   useEffect(() => {
-    // Find the Home scroll container
     const container = document.getElementById("home-scroll-container");
     if (!container) return;
 
@@ -135,11 +164,9 @@ function ProductCard({ product, onProductClick }) {
       const relativeTop = rect.top - containerRect.top;
       const cardHeight = rect.height;
 
-      // Progress: 0 = card at top, 1 = card fully scrolled past
       const scrolledPast = -relativeTop;
       const progress = Math.max(0, Math.min(1, scrolledPast / cardHeight));
 
-      // Only the IMAGE moves and fades — text stays still
       setImageY(progress * 120);
       setImageOpacity(1 - progress * 1.5);
     };
@@ -148,26 +175,27 @@ function ProductCard({ product, onProductClick }) {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
+const handleAdd = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  addToCart(product);
+  if (typeof toggleCart === "function") {
+    toggleCart();
+  }
+};
+
   return (
     <div
       ref={cardRef}
+      className="product-card-container"
       style={{
-        height: "71vh",
         background: product.color,
         position: "relative",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
         overflow: "hidden",
       }}
     >
-      {/* LEFT: Text — stays fixed in place */}
-      <div style={{
-        flex: 1,
-        padding: "0 32px",
-        color: "#fff",
-        zIndex: 2,
-      }}>
+      {/* LEFT: Text */}
+      <div className="product-text-container">
         {/* Months badge */}
         <div style={{
           display: "inline-block",
@@ -184,12 +212,12 @@ function ProductCard({ product, onProductClick }) {
         </div>
 
         <h1 style={{
-          fontSize: "clamp(2rem, 5vw, 3.2rem)",
+          fontSize: "clamp(1.8rem, 4.5vw, 3.2rem)",
           fontWeight: 900,
           color: "#ffffff",
           margin: "0 0 20px 0",
           lineHeight: 1.1,
-          fontFamily: "'Nunito', 'Comic Sans MS', cursive",
+          fontFamily: "'Nunito', cursive",
           textTransform: "uppercase",
         }}>
           {product.name}
@@ -213,35 +241,34 @@ function ProductCard({ product, onProductClick }) {
         }}>
           Price : {product.price}
         </p>
-        <button onClick={() => addToCart(product)}
-  style={{
-    cursor: "pointer",
-    marginTop: 12,
-    background: "#fff",
-    color: product.color || "#5a2a1a",
-    border: "none",
-    borderRadius: 20,
-    padding: "8px 20px",
-    fontWeight: 900,
-    fontSize: "0.95rem",
-    fontFamily: "'Nunito', cursive",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-  }}
->
-  Add to Cart 🛒
-</button>
+
+        <button
+          type="button"
+          onClick={handleAdd}
+          style={{
+            cursor: "pointer",
+            marginTop: 12,
+            background: "#fff",
+            color: product.color || "#5a2a1a",
+            border: "none",
+            borderRadius: 20,
+            padding: "8px 20px",
+            fontWeight: 900,
+            fontSize: "0.95rem",
+            fontFamily: "'Nunito', cursive",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+          }}
+        >
+          Add to Cart 🛒
+        </button>
       </div>
 
-      {/* RIGHT: Product image — scrolls down and fades as you scroll */}
+      {/* RIGHT: Product image wrapper */}
       <div
         ref={imageRef}
+        className="product-image-wrapper"
         onClick={() => onProductClick(product.id)}
         style={{
-          width: "40%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
           transform: `translateY(${imageY}px)`,
           opacity: Math.max(0, imageOpacity),
           transition: "transform 0.1s linear, opacity 0.1s linear",
@@ -252,13 +279,7 @@ function ProductCard({ product, onProductClick }) {
           <img
             src={product.image}
             alt={product.name}
-            style={{
-              width: "500px",
-              // maxWidth: 260,
-              height: "700px",
-              animation: "hoverFloat 3s ease-in-out infinite",
-              filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.4))",
-            }}
+            className="product-responsive-img"
           />
         ) : (
           <div style={{
@@ -271,7 +292,6 @@ function ProductCard({ product, onProductClick }) {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            // animation: "hoverFloat 3s ease-in-out infinite",
             filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.3))",
             color: "#fff",
             fontFamily: "'Nunito', cursive",
@@ -287,18 +307,6 @@ function ProductCard({ product, onProductClick }) {
             </div>
           </div>
         )}
-      </div>
-
-      {/* Scalloped bottom edge */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 3 }}>
-        {/* <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"
-          style={{ width: "100%", display: "block" }}
-          preserveAspectRatio="none">
-          <path
-            d="M0,60 Q72,0 144,60 Q216,0 288,60 Q360,0 432,60 Q504,0 576,60 Q648,0 720,60 Q792,0 864,60 Q936,0 1008,60 Q1080,0 1152,60 Q1224,0 1296,60 Q1368,0 1440,60 Z"
-            fill="rgba(0,0,0,0.2)"
-          />
-        </svg> */}
       </div>
     </div>
   );
@@ -318,6 +326,77 @@ export default function Products() {
           0%   { transform: translateY(0px); }
           50%  { transform: translateY(-18px); }
           100% { transform: translateY(0px); }
+        }
+
+        /* Default Desktop Layout */
+        .product-card-container {
+          height: 40vh;
+          min-height: 450px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          
+        }
+
+        .product-text-container {
+          flex: 1;
+          padding: 0 32px;
+          color: #fff;
+          zIndex: 2;
+        }
+
+        // .product-image-wrapper {
+        //   width: 50%;
+        //   display: flex;
+        //   align-items: center;
+        //   justifyContent: center;
+        //   cursor: pointer;
+        // }
+
+        .product-responsive-img {
+          width: 500px;
+          height: 700px;
+          // max-width: 90%;
+          // max-height: 65vh;
+          object-fit: contain;
+          animation: hoverFloat 3s ease-in-out infinite;
+          filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+        }
+
+        /* Tablet Screen Rules */
+        @media (max-width: 1024px) {
+          .product-image-wrapper {
+            width: 45%;
+          }
+          .product-responsive-img {
+            width: 360px;
+            height: auto;
+            max-height: 50vh;
+          }
+        }
+
+        /* Mobile Screen Rules */
+        @media (max-width: 768px) {
+          .product-card-container {
+            height: auto;
+            min-height: 85vh;
+            flex-direction: column-reverse;
+            justify-content: center;
+            padding: 36px 16px;
+            text-align: center;
+          }
+          .product-text-container {
+            padding: 16px 0 0 0;
+          }
+          .product-image-wrapper {
+            width: 100%;
+          }
+          .product-responsive-img {
+            width: 240px;
+            max-width: 75vw;
+            height: auto;
+            max-height: 38vh;
+          }
         }
       `}</style>
 

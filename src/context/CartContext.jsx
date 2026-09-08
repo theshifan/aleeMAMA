@@ -5,8 +5,6 @@ const CartContext = createContext();
 const STORAGE_KEY = "aleemama_cart";
 
 const demoCart = [
-  {
-  },
 ];
 
 // Load cart from localStorage when the app starts

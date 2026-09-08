@@ -74,7 +74,7 @@ export default function Home() {
             Welcome to aleeMAMA
           </h1>
           <p style={{ color: "#a07040", fontSize: "1.2rem", padding: "20px" }}>
-            Your page content goes here ✨
+            JUST HOW YOUR GRAND MOTHER MAKES✨
           </p>
         </div>
 
