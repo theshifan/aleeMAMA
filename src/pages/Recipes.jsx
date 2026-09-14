@@ -2,9 +2,10 @@ import { useRef, useState } from "react";
 import MediaCard from "../assets/component/RecipieCard";
 import abc from "../assets/component/Recipe_video/abc_123.mp4"
 import beets from "../assets/component/Recipe_video/beetroot_123.mp4"
+import millets from "../assets/component/Recipe_video/millet adn beet.mp4"
 
 const recipes = [
-  { id: 1, title: "Ragi Porridge",  mediaUrl: null, mediaType: "image" },
+  { id: 1, title: "Ragi Porridge",  mediaUrl: millets, mediaType: "video" },
   { id: 2, title: "Wheat Khichdi", mediaUrl: abc, mediaType: "video" },
   { id: 3, title: "Multigrain Mix", mediaUrl: null, mediaType: "image" },
   { id: 4, title: "Fruit Blend",    mediaUrl: beets, mediaType: "video" },
