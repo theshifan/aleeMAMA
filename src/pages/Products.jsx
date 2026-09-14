@@ -177,8 +177,8 @@ const products = [
   {
     id: 11,
     name: "abC POWDER",
-    weight: "300 g",
-    price: "280/-",
+    weight: "250 g",
+    price: "480/-",
     months: "ALL AGES",
     color: "#fb939d", 
     image: AbcJuice,
