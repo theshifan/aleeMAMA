@@ -45,7 +45,7 @@ const products = [
     image: RawBana,
   },
 
-    {
+  {
     id: 4,
     name: "RED BANAPPLE",
     weight: "250 g",
@@ -63,7 +63,7 @@ const products = [
     color: "#984788",
     image: Sweetpotato,
   },
-     {
+  {
     id: 6,
     name: "Ragi Dates & Almond",
     weight: "250 g",
@@ -72,7 +72,7 @@ const products = [
     color: "#bd7b68",
     image: ragiDates,
   },
-    {
+  {
     id: 7,
     name: "SPROUTED RAGI NUTRI MIX",
     weight: "300 g",
@@ -81,7 +81,7 @@ const products = [
     color: "#edb062",
     image: NutriMix,
   },
-{
+  {
     id: 8,
     name: "PUMKISTA POWDER",
     weight: "250 g",
@@ -90,7 +90,7 @@ const products = [
     color: "#ccc14f",
     image: Pumkista,
   },
-    {
+  {
     id: 9,
     name: "Carbanana And Almond Mix",
     weight: "250 g",
@@ -99,7 +99,7 @@ const products = [
     color: "#ff751f",
     image: Carbanana,
   },
-    {
+  {
     id: 10,
     name: "POHA AND MAKAHANA",
     weight: "250 g",
@@ -108,7 +108,7 @@ const products = [
     color: "#d9d9d9",
     image: PohaAndMakahana,
   },
-    {
+  {
     id: 11,
     name: "Millet And Beets",
     weight: "250 g",
@@ -117,7 +117,7 @@ const products = [
     color: "#d26872",
     image: millet,
   },
-     {
+  {
     id: 12,
     name: "PanCake Mix",
     weight: "250 g",
@@ -175,14 +175,14 @@ function ProductCard({ product, onProductClick }) {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
-const handleAdd = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  addToCart(product);
-  if (typeof toggleCart === "function") {
-    toggleCart();
-  }
-};
+  const handleAdd = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product);
+    if (typeof toggleCart === "function") {
+      toggleCart();
+    }
+  };
 
   return (
     <div
@@ -273,7 +273,7 @@ const handleAdd = (e) => {
           opacity: Math.max(0, imageOpacity),
           transition: "transform 0.1s linear, opacity 0.1s linear",
           zIndex: 2,
-        }}
+                  }}
       >
         {product.image ? (
           <img
@@ -335,7 +335,7 @@ export default function Products() {
           display: flex;
           flex-direction: row;
           align-items: center;
-          
+
         }
 
         .product-text-container {
@@ -356,7 +356,7 @@ export default function Products() {
         .product-responsive-img {
           width: 500px;
           height: 700px;
-          // max-width: 90%;
+// max-width: 90%;
           // max-height: 65vh;
           object-fit: contain;
           animation: hoverFloat 3s ease-in-out infinite;
