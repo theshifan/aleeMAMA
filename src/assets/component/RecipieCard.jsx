@@ -35,14 +35,19 @@ export default function MediaCard({ mediaUrl, mediaType = "image", caption }) {
         {mediaUrl ? (
           mediaType === "video" ? (
             <video
-              ref={videoRef}
-              src={mediaUrl}
-              loop
-              playsInline
-              autoPlay      
-              muted
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+  ref={videoRef}
+  src={mediaUrl}
+  loop
+  playsInline
+  autoPlay
+  muted
+  // controls
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"
+  }}
+/>
           ) : (
             <img
               src={mediaUrl}
